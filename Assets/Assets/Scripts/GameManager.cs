@@ -6,17 +6,23 @@ public class GameManager : MonoBehaviour
     [Header("TextLabels")]
     public Text TotalClickText;
     public Text UpgradeLevelText;
-
+    [Header("Upgrade Button")]
+    public Button UpgradeButton;
     float TotalClick;
 
     [Header("Upgrades")]
     public int UpgradeLevel;
     public int MinimumClickToUnlock;
 
+    public void Start(){
+        UpdateClickText(); 
+        UpdateUpgradeButton();
+    }
     public void Click()
     {
         TotalClick++;
-        UpdateClickText(); // Met à jour l'affichage immédiatement après un clic
+        UpdateClickText(); 
+        UpdateUpgradeButton();
     }
 
     public void AutoClickUpgrade()
@@ -25,8 +31,10 @@ public class GameManager : MonoBehaviour
         {
             TotalClick -= MinimumClickToUnlock;
             UpgradeLevel += 1;
-            UpdateClickText(); // Met à jour l'affichage après un achat
+            UpdateClickText();
+            UpdateUpgradeButton();
         }
+        
     }
 
     void Update()
@@ -35,6 +43,7 @@ public class GameManager : MonoBehaviour
         {
             TotalClick += UpgradeLevel * Time.deltaTime;
             UpdateClickText();
+            UpdateUpgradeButton();
         }
     }
 
@@ -42,5 +51,9 @@ public class GameManager : MonoBehaviour
     {
         TotalClickText.text = TotalClick.ToString("0");
         UpgradeLevelText.text = UpgradeLevel.ToString("0");
+    }
+    
+    void UpdateUpgradeButton(){
+        UpgradeButton.interactable = TotalClick >= MinimumClickToUnlock;
     }
 }
