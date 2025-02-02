@@ -3,34 +3,60 @@ using UnityEngine.UI;
 
 public class RessourcesManager : MonoBehaviour
 {
-    float TotalClick;
+
+    [Header("V. Energy")]
+    public float EnergyAmount;
+    public Text EnergyAmountText;
+    public int EnergyGatherAmount;
 
     [Header("Stone")]
     public Text StoneAmountText;
-    float StoneAmount;
+    public Button StoneButton;
+    public int StoneAmount;
     [Header("Wood")]
     public Text WoodAmountText;
-    float WoodAmount;
+    public Button WoodButton;
+    public int WoodAmount;
     [Header("Ore")]
     public Text OreAmountText;
-    float OreAmount;
+    public Button OreButton;
+    public int OreAmount;
+    [Header("Upgrade & Transfers")]
+    public int EnergyTransferCost;
+    
 
     void Start(){
         UpdateTexts();
     }
 
+    public void GetEnergy(){
+        EnergyAmount += EnergyGatherAmount;
+        UpdateTexts();
+    }
+
     public void GetStone(){
-        StoneAmount++;
+        if(EnergyAmount >= EnergyTransferCost){
+            EnergyAmount -= EnergyTransferCost;
+            StoneAmount += EnergyTransferCost;
+        }
+        
         UpdateTexts();
     }
 
     public void GetWood(){
-        WoodAmount++;
+        if(EnergyAmount >= EnergyTransferCost){
+            EnergyAmount -= EnergyTransferCost;
+            WoodAmount += EnergyTransferCost;
+        }
         UpdateTexts();
     }
 
     public void GetOre(){
-        OreAmount++;
+        if(EnergyAmount >= EnergyTransferCost){
+            EnergyAmount -= EnergyTransferCost;
+            OreAmount += EnergyTransferCost;
+        }
+        
         UpdateTexts();
     }
 
@@ -39,9 +65,11 @@ public class RessourcesManager : MonoBehaviour
         StoneAmountText.text = StoneAmount.ToString("0");
         WoodAmountText.text = WoodAmount.ToString("0");
         OreAmountText.text = OreAmount.ToString("0");
+        EnergyAmountText.text = EnergyAmount.ToString("0");
+        StoneButton.interactable = EnergyAmount >= EnergyTransferCost;
+        WoodButton.interactable = EnergyAmount >= EnergyTransferCost;
+        OreButton.interactable = EnergyAmount >= EnergyTransferCost;
         
     }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
   
 }

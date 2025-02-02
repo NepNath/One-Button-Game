@@ -19,11 +19,6 @@ public class GameManager : MonoBehaviour
     public void Start(){
         UpdateUI();
     }
-    public void Click()
-    {
-        TotalClick++;
-        UpdateUI();
-    }
 
     public void AutoClickUpgrade()
     {
