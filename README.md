@@ -1,8 +1,18 @@
 # One-Button-Game
 
-## Latest Update : 0.3.0 Craft Version
+## Latest Update : 0.3.1
 
-## Changelog  : 
+## 0.3.1 Changelog  : 
+
+### Added: 
+- Save System (Not finished, done in urgence, need fixing)
+
+
+-------------------------------------------------------
+
+## 0.3.0 - Major Update : Craft Update
+
+### Changelog  : 
 
 ### Added: 
 - Crafting menu (Empty on version 0.3.0)
