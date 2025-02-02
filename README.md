@@ -9,3 +9,7 @@
 - Random range for generating Energy
 - Grey Background on main game
 
+### Planned for next Update : 
+- Save System
+- Crafts
+- New ressource : things
