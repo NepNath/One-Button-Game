@@ -51,7 +51,8 @@ public class UpgradeManager : MonoBehaviour
         //increase the amount of generated energy per click
          if(rm.EnergyAmount >= ClickUpgradeCost){
             rm.EnergyAmount -= ClickUpgradeCost;      
-            rm.EnergyGatherAmount += 1;
+            rm.MinEnergy += 1;
+            rm.MaxEnergy += 1;
             ClickLevel++;           
             ClickUpgradeCost = Mathf.CeilToInt(ClickUpgradeCost * ClickUpgradeMultiplier);               
             UpdateUI();

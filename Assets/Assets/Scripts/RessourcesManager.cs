@@ -8,6 +8,9 @@ public class RessourcesManager : MonoBehaviour
     public float EnergyAmount;
     public Text EnergyAmountText;
     public int EnergyGatherAmount;
+    int EnergyGatherRange;
+    public int MinEnergy;
+    public int MaxEnergy;
 
     [Header("Stone")]
     public Text StoneAmountText;
@@ -30,7 +33,8 @@ public class RessourcesManager : MonoBehaviour
     }
 
     public void GetEnergy(){
-        EnergyAmount += EnergyGatherAmount;
+        EnergyAmount += Random.Range(MinEnergy, MaxEnergy);
+        Debug.Log("Gathered Energy");
         UpdateTexts();
     }
 
