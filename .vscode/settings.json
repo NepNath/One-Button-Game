@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "OBC.sln"
+    "dotnet.defaultSolution": "One-Button-Game.sln"
 }
